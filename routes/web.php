@@ -17,3 +17,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'ReviewController@index')->name('index');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/review', 'ReviewController@create')->name('create');
+    Route::post('/review/store', 'ReviewController@store')->name('store');
+});
