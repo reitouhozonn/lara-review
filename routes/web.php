@@ -17,6 +17,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'ReviewController@index')->name('index');
+Route::get('/show/{id}', 'ReviewController@show')->name('show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/review', 'ReviewController@create')->name('create');
